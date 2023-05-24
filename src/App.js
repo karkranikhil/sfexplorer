@@ -152,7 +152,7 @@ class App extends Component {
                 </p>
 
                 <div className="options">
-                  <h4 className="options__title">I want command related to:</h4>
+                  <h4 className="options__title">Select command type:</h4>
 
                   <Select
                     placeholder="..."
@@ -197,9 +197,6 @@ class App extends Component {
                     
                     {usage.length ? (
                       <div className="copy">
-                        {/* <span className={`copy__popover ${copied ? 'show' : ''}`}>
-                          command copied
-                        </span> */}
                         <img
                           className="copy__image"
                           onClick={()=>this.copyUsage(usage)}
@@ -228,9 +225,6 @@ class App extends Component {
                               
                               {example.command.length ? (
                                 <div className="copy">
-                                  {/* <span className={`copy__popover ${copied ? 'show' : ''}`}>
-                                    command copied
-                                  </span> */}
                                   <img
                                     className="copy__image"
                                     onClick={()=>this.copyUsage(example.command)}

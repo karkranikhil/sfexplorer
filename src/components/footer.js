@@ -15,7 +15,7 @@ const Footer = props => (
       </a>
     </div>
     <p className="footer__copyright dark-white">
-    Built by Nikhil Karkra{' '}
+    Built by {' '}
       <a href="https://www.linkedin.com/in/nikhilkarkra/" target="_blank" rel="noopener noreferrer">
         Nikhil Karkra |
       </a>{' '} Inspired From {' '}
