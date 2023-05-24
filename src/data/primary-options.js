@@ -1,17 +1,18 @@
 const options = [
-  { value: 'config', label: 'config' },
-  { value: 'deploy', label: 'deploy' },
-  { value: 'envval', label: 'env' },
-  { value: 'generate', label: 'generate' },
-  { value: 'help', label: 'help' },
-  { value: 'login', label: 'login' },
-  { value: 'logout', label: 'logout' },
-  { value: 'plugins', label: 'plugins' },
-  { value: 'retrieve', label: 'retrieve' },
-  { value: 'run', label: 'run' },
-  { value: 'search', label: 'search' },
-  { value: 'update', label: 'update' },
-  { value: 'version', label: 'version' },
+  { value: 'config', label: 'Configuration' },
+  { value: 'deploy', label: 'Deploy' },
+  { value: 'envval', label: 'Environment' },
+  { value: 'generate', label: 'Generate' },
+  { value: 'retrieve', label: 'Retrieve' },
+  { value: 'help', label: 'Help' },
+  { value: 'login', label: 'Login' },
+  { value: 'logout', label: 'Logout' },
+  // { value: 'plugins', label: 'Plugins' },
+  
+  { value: 'run', label: 'Run' },
+  { value: 'search', label: 'Search' },
+  { value: 'update', label: 'Update' },
+  // { value: 'version', label: 'Version' },
   
  
 ];

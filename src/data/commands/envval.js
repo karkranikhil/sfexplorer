@@ -59,7 +59,7 @@ There are two ways to create a sandbox org: specify a definition file that conta
         },
         {
           "title":' Create a sandbox org by directly specifying its name and type of license (Developer) instead of using a definition file. Set the sandbox org as your default.',
-          "command":'sf env create sandbox --name mysandbox --license-type Developer --alias MyDevSandbox --target-org prodOrg \ --set-default'
+          "command":'sf env create sandbox --name mysandbox --license-type Developer --alias MyDevSandbox --target-org prodOrg \\ --set-default'
         }
       ]
     },
@@ -100,7 +100,7 @@ You must specify a Dev Hub to create a scratch org, either with the --target-dev
         },
         {
           "title":'Specify the Dev Hub using its alias and a scratch org definition file. Set the scratch org as your default and specify that it expires in 3 days',
-          "command":'sf env create scratch --target-dev-hub=MyHub --definition-file config/project-scratch-def.json --set-default \ --duration-days 3'
+          "command":'sf env create scratch --target-dev-hub=MyHub --definition-file config/project-scratch-def.json --set-default \\ --duration-days 3'
         }
       ]
     },

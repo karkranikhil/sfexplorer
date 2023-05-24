@@ -152,7 +152,7 @@ class App extends Component {
                 </p>
 
                 <div className="options">
-                  <h4 className="options__title">I want to:</h4>
+                  <h4 className="options__title">I want command related to:</h4>
 
                   <Select
                     placeholder="..."

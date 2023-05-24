@@ -307,7 +307,7 @@ To validate the deployment of multiple metadata components, either set multiple 
         },
         {
           "title":'Asynchronously validate the deployment and run all tests in the org with alias "my-prod-org"; command immediately returns the job ID',
-          "command":"sf deploy metadata validate --source-dir path/to/source --async --test-level RunAllTestsInOrg --target-org \ my-prod-org"
+          "command":"sf deploy metadata validate --source-dir path/to/source --async --test-level RunAllTestsInOrg --target-org \\ my-prod-org"
         },{
           "title":'Validate the deployment of all components listed in a manifest',
           "command":"sf deploy metadata validate --manifest path/to/package.xml"

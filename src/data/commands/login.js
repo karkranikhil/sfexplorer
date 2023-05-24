@@ -57,7 +57,7 @@ Use this command when executing from a script.`,
           },
           {
             "title":'Log in and specify the org alias and URL, set as default org and default Dev Hub, and format output as JSON',
-            "command":"sf login functions jwt --username example@username.org --keyfile file.key --clientid 123456 --alias org-alias \ --set-default --set-default-dev-hub --instance-url https://path/to/instance --json"
+            "command":"sf login functions jwt --username example@username.org --keyfile file.key --clientid 123456 --alias org-alias \\ --set-default --set-default-dev-hub --instance-url https://path/to/instance --json"
           }
         ]
       },
@@ -103,11 +103,11 @@ By default, this command uses the global out-of-the-box connected app in your or
           },
           {
             "title":'Use --browser to specify a specific browser, such as Google Chrome',
-            "command":"sf login org --instance-url https://MyDomainName--SandboxName.sandbox.my.salesforce.com --set-default \ --browser chrome"
+            "command":"sf login org --instance-url https://MyDomainName--SandboxName.sandbox.my.salesforce.com --set-default \\ --browser chrome"
           },
           {
             "title":'Use your own connected app by specifying its consumer key (also called client ID)',
-            "command":"sf login org --instance-url https://MyDomainName--SandboxName.sandbox.my.salesforce.com --set-default \ --browser chrome --clientid 04580y4051234051"
+            "command":"sf login org --instance-url https://MyDomainName--SandboxName.sandbox.my.salesforce.com --set-default \\ --browser chrome --clientid 04580y4051234051"
           }
         ]
       },
@@ -153,15 +153,15 @@ Use --set-default for your default scratch org or sandbox, or --set-default-dev-
           },
           {
             "title":'Set the org as the default and give it an alias',
-            "command":"sf login org jwt --username jdoe@example.org --keyfile /Users/jdoe/JWT/server.key --clientid 04580y4051234051 \ --alias ci-org --set-default"
+            "command":"sf login org jwt --username jdoe@example.org --keyfile /Users/jdoe/JWT/server.key --clientid 04580y4051234051 \\ --alias ci-org --set-default"
           },
           {
             "title":'Set the org as the default Dev Hub and give it an alias',
-            "command":"sf login org jwt --username jdoe@example.org --keyfile /Users/jdoe/JWT/server.key --clientid 04580y4051234051 \ --alias ci-dev-hub --set-default-dev-hub"
+            "command":"sf login org jwt --username jdoe@example.org --keyfile /Users/jdoe/JWT/server.key --clientid 04580y4051234051 \\ --alias ci-dev-hub --set-default-dev-hub"
           },
           {
             "title":'Log in to a sandbox using URL https://MyDomainName--SandboxName.sandbox.my.salesforce.com',
-            "command":"sf login org jwt --username jdoe@example.org --keyfile /Users/jdoe/JWT/server.key --clientid 04580y4051234051 \ --alias ci-org --set-default --instance-url https://MyDomainName--SandboxName.sandbox.my.salesforce.com"
+            "command":"sf login org jwt --username jdoe@example.org --keyfile /Users/jdoe/JWT/server.key --clientid 04580y4051234051 \\ --alias ci-org --set-default --instance-url https://MyDomainName--SandboxName.sandbox.my.salesforce.com"
           }
         ]
       }
