@@ -623,7 +623,9 @@ body {
           padding: 0 !important; }
 
 .footer {
-  margin-top: 2rem; }
+  margin-top: 2rem;
+  margin-right: 60px;
+ }
   .footer__copyright {
     display: block;
     color: #4a4a4a;

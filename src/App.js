@@ -6,7 +6,6 @@ import { optionsFirst, optionsSecond } from 'data';
 import Select from 'react-select';
 import clipboard from 'assets/images/clipboard.svg';
 import classnames from 'classnames';
-
 class App extends Component {
   constructor(props) {
     super(props);

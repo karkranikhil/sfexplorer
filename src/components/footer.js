@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import github from 'assets/images/github.svg';
 import githubGreen from 'assets/images/github-green.svg';
 
+
 const Footer = props => (
   <footer className="footer">
+
     <div className="logo">
       <a href="https://github.com/karkranikhil/sfexplorer" rel="noopener noreferrer" target="_blank">
         {props.dark ? (
