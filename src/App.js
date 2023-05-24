@@ -16,8 +16,6 @@ class App extends Component {
       firstOption: null,
       showSecond: false,
       secondOption: null,
-      showThird: false,
-      thirdOption: null,
       nb: '',
       usage: '',
       description:'',
@@ -45,7 +43,6 @@ class App extends Component {
         firstOption: selectedOption,
         showSecond: true,
         secondOption: null,
-        showThird: false,
         nb: '',
         description:'',
         examples:'',
@@ -66,21 +63,17 @@ class App extends Component {
       this.setState({ nb: '', usage: '' }, () => {
         this.setState({
           secondOption: selectedOption,
-          showThird: false,
           nb: selectedOption.nb,
           usage: selectedOption.usage,
           description:selectedOption.description,
           examples:selectedOption.examples,
           CONFIG_VARIABLE:selectedOption.CONFIG_VARIABLE,
           flags:selectedOption.flags,
-          thirdOption: null
         });
       });
     } else {
       this.setState({
         secondOption: selectedOption,
-        showThird: true,
-        thirdOption: null,
         nb: '',
         usage: ''
       });
@@ -90,7 +83,6 @@ class App extends Component {
   onThirdChange = (selectedOption) => {
     this.setState({ nb: '', usage: '' }, () => {
       this.setState({
-        thirdOption: selectedOption,
         nb: selectedOption.nb,
         usage: selectedOption.usage
       });
@@ -134,9 +126,7 @@ class App extends Component {
       dark,
       firstOption,
       secondOption,
-      thirdOption,
       showSecond,
-      showThird,
       fastType,
       usage,
       description,
