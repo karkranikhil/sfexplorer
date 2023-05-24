@@ -696,7 +696,10 @@ body {
   text-align: center;
 }
 @media  screen and (min-width:779px) {
-  .home .content .options__title, .home .content__title {
+  .home .content__title {
     font-size: 38px;
+   }
+   .home .content .options__title {
+    font-size: 28px;
    }
 }
