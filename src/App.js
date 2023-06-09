@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Helmet } from 'react-helmet';
 import { Footer, Nav } from 'components';
 import Typist from 'react-typist';
 import { isMobile } from 'react-device-detect';
@@ -137,6 +138,12 @@ class App extends Component {
     const avgTypingDelay = fastType ? 0 : 50;
 
     return (
+      <>
+      <Helmet>
+        <meta property="og:image" content="https://sfexplorer.netlify.app/sfexplorer.png" />
+        <meta property="twitter:image:src" content="https://sfexplorer.netlify.app/sfconverter.png" />
+      </Helmet>
+    
       <div className={classnames('home', { dark })}>
         <div className="container home__container">
           <Nav mode={dark} onToggle={this.handleToggle} fastType={fastType} />
@@ -257,6 +264,7 @@ class App extends Component {
           <Footer dark={dark} />
         </div>
       </div>
+      </>
     );
   }
 }
