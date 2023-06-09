@@ -146,7 +146,7 @@ class App extends Component {
     } = this.state;
 
     const avgTypingDelay = fastType ? 0 : 50;
-
+    console.log("loaded")
     return (
       <>
       <Helmet>
