@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { Footer, Nav } from 'components';
 import Typist from 'react-typist';
 import { isMobile } from 'react-device-detect';
-import { optionsFirst, optionsSecond } from 'data';
+import { optionsFirstConverter, optionsSecondConverter } from 'data';
 import Select from 'react-select';
 import clipboard from 'assets/images/clipboard.svg';
 import classnames from 'classnames';
-class App extends Component {
+class Converter extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -49,9 +49,9 @@ class App extends Component {
         flags:'',
         usage: ''
       });
-    } else if (optionsSecond[selectedOption.value].length === 1) {
+    } else if (optionsSecondConverter[selectedOption.value].length === 1) {
       this.setState({ firstOption: selectedOption, showSecond: true });
-      this.onSecondChange(optionsSecond[selectedOption.value][0]);
+      this.onSecondChange(optionsSecondConverter[selectedOption.value][0]);
     } else {
       this.setState({ firstOption: selectedOption, showSecond: true });
     }
@@ -127,11 +127,7 @@ class App extends Component {
       secondOption,
       showSecond,
       fastType,
-      usage,
-      description,
-      examples,
-      flags,
-      CONFIG_VARIABLE
+      usage
     } = this.state;
     console.log("this.state", this.state)
     const avgTypingDelay = fastType ? 0 : 50;
@@ -139,31 +135,60 @@ class App extends Component {
     return (
       <div className={classnames('home', { dark })}>
         <div className="container home__container">
-          <Nav mode={dark} onToggle={this.handleToggle} fastType={fastType} />
-          <div className="content">
+          <Nav mode={dark} onToggle={this.handleToggle} fastType={fastType} isConverter={true}/>
+          <div className="content static">
             <div className="row">
               <div className="col-12">
                 <h2 className="content__title  dark-white text-center">
-                  SF <span>Command</span> Explorer
+                  <span>SFDX</span> to <span>SF</span> Command Convertor
                 </h2>
-                <p className="content__subtitle dark-grey text-center">
-                 Save time and effortlessly discover the precise commands you require, eliminating the need for extensive web searches.
+                <p className="content__subtitle dark-grey text-center pb-3">
+                 Save time and effortlessly Convert SFDX command to SFDX, eliminating the need for extensive web searches.
                 </p>
 
+                <div className='row mt-24'>
+                <div className="col-12 boards">
+                <div
+                  className={`board__group board__group--1 ${isMobile && !usage ? ' d-none' : ''}`}
+                >
+                  <h2 className="board__title  dark-white font20">To install sf with npm, run this command:</h2>
+                  <div className="board board--1 board static">
+                    <pre>
+                    <Typist avgTypingDelay={avgTypingDelay} cursor={{ show: false }}>
+                        npm install --global @salesforce/cli@latest
+                    </Typist>
+                    </pre>
+                    
+                    <div className="copy">
+                        <img
+                          className="copy__image"
+                          onClick={()=>this.copyUsage("npm install --global @salesforce/cli@latest")}
+                          src={clipboard}
+                          alt="Clipboard"
+                        />
+                      </div>
+                  </div>
+                  
+                </div>
+              </div>
+                </div>
                 <div className="options">
-                  <h4 className="options__title">Select command type:</h4>
+                  <h4 className="options__title">Select SFDX command type:</h4>
 
                   <Select
+                    label="Select SFDX command type"
                     placeholder="..."
                     className="options-select"
                     classNamePrefix="options-select"
                     isSearchable={true}
                     onChange={this.onFirstChange}
                     value={firstOption}
-                    options={optionsFirst}
+                    options={optionsFirstConverter}
                   />
 
                   {showSecond ? (
+                     <>
+                     <h2 className="board__title  dark-white">Select SFDX command:</h2>
                     <Select
                       placeholder="..."
                       className="options-select"
@@ -171,8 +196,8 @@ class App extends Component {
                       isSearchable={true}
                       onChange={this.onSecondChange}
                       value={secondOption}
-                      options={optionsSecond[firstOption.value]}
-                    />
+                      options={optionsSecondConverter[firstOption.value]}
+                    /></>
                   ) : null}
 
                   
@@ -182,7 +207,7 @@ class App extends Component {
                 <div
                   className={`board__group board__group--1 ${isMobile && !usage ? ' d-none' : ''}`}
                 >
-                  <h2 className="board__title  dark-white">Usage</h2>
+                  <h2 className="board__title  dark-white">SF Command</h2>
                   <div className="board board--1">
                     <pre>
                       {usage.length ? (
@@ -205,50 +230,6 @@ class App extends Component {
                       </div>
                     ) : null}
                   </div>
-                
-                  {examples && <h2 className="board__title  dark-white margin-top24">Examples</h2>}
-                      {examples && examples.map(example=>{
-                        return <div key={example.title}>
-                          
-                            <p className='dark-grey margin-top16'>{example.title}</p>
-                            <div className="board board--1">
-                              <pre>
-                                {example.command.length ? (
-                                  <Typist avgTypingDelay={avgTypingDelay} cursor={{ show: false }}>
-                                    {example.command}
-                                  </Typist>
-                                ) : (
-                                  <div />
-                                )}
-                              </pre>
-                              
-                              {example.command.length ? (
-                                <div className="copy">
-                                  <img
-                                    className="copy__image"
-                                    onClick={()=>this.copyUsage(example.command)}
-                                    src={clipboard}
-                                    alt="Clipboard"
-                                  />
-                                </div>
-                              ) : null}
-                            </div>
-                        </div>
-                      })}
-                 {description && <h2 className="board__title  dark-white margin-top24">Description</h2>}
-                  {description && <div className='dark-grey'><pre>{description}</pre></div>}
-                  {CONFIG_VARIABLE && <h2 className="board__title  dark-white margin-top24">Configuration Variables</h2>}
-                  {CONFIG_VARIABLE && CONFIG_VARIABLE.map(item=>{
-                    return (
-                      <div key={item.name}>
-                        <h4 className="board__title  dark-white margin-top24">{item.name}</h4>
-                        <div className='dark-grey'><pre>{item.description}</pre></div>
-                      </div>
-                    )
-                  })}
-                  
-                  {flags && <h2 className="board__title  dark-white margin-top24">Flags</h2>}
-                  {flags && <div className='dark-grey'><pre>{flags}</pre></div>}
                   
                 </div>
               </div>
@@ -261,4 +242,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Converter;
