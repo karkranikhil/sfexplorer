@@ -144,7 +144,7 @@ class App extends Component {
       flags,
       CONFIG_VARIABLE
     } = this.state;
-    console.log("this.state", this.state)
+
     const avgTypingDelay = fastType ? 0 : 50;
 
     return (
