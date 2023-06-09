@@ -25,7 +25,17 @@ class App extends Component {
       copied: false
     };
   }
-
+  componentDidMount(){
+    if(caches){
+      caches.keys().then((names) => {
+          names.forEach((name) => {
+              caches.delete(name);
+              console.log("caches deleted sucessfully!!")
+          });
+      });
+      
+     };
+  }
   handleToggle = (evt) => {
     const { id } = evt.target;
 
